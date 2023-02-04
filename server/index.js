@@ -11,11 +11,9 @@ db.once('open', () => console.log('Connected to Database'))
 
 app.use(express.json())
 
-const postsRouter = require('../routes/posts')
+const postsRouter = require('./api/routes/posts')
 app.use('/posts', postsRouter)
 
 app.listen(5000, () => console.log('Server running on port 5000'))
-
-module.exports = app;
 
 
