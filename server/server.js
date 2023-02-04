@@ -15,6 +15,10 @@ app.use(express.json())
 const postsRouter = require('./routes/posts')
 app.use('/posts', postsRouter)
 
+app.get('/', (req,res) => {
+    res.status(200).json({ message: "Welcome to my API"})
+})
+
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 
