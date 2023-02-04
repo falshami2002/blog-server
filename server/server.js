@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+const PORT = process.env.PORT || 5000
 
 mongoose.connect(process.env.DATABASE_URL)
 const db = mongoose.connection
@@ -11,9 +12,9 @@ db.once('open', () => console.log('Connected to Database'))
 
 app.use(express.json())
 
-const postsRouter = require('./api/routes/posts')
+const postsRouter = require('./routes/posts')
 app.use('/posts', postsRouter)
 
-app.listen(5000, () => console.log('Server running on port 5000'))
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
 
 
